@@ -1,0 +1,22 @@
+/* Assuming you have some global styles or a CSS file linked */
+.drawer-content {
+  position: relative;
+}
+
+.toggle-btn {
+  position: absolute;
+  top: 10px; /* Adjust the top value as needed */
+  left: 10px; /* Adjust the left value as needed */
+  z-index: 10; /* Ensures the button is on top when sidebar is hidden */
+  transition: opacity 0.3s ease; /* Adds a smooth transition */
+}
+
+.drawer-toggle:checked ~ .drawer-content .toggle-btn {
+  opacity: 0; /* Hides the button when the sidebar is visible */
+  pointer-events: none; /* Prevents interaction with the button when hidden */
+}
+
+.drawer-toggle:not(:checked) ~ .drawer-content .toggle-btn {
+  opacity: 1; /* Shows the button when the sidebar is hidden */
+  pointer-events: auto; /* Allows interaction with the button when visible */
+}
